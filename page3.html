@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Author: Tyrek Long | Date: November 8, 2026 -->
+<!--
+Generative AI acknowledgment:
+Claude (Anthropic) was used on November 8, 2026, to help generate the HTML and CSS,
+the page layout, the SVG workshop illustration, the origin story, FAQ, and contact details.
+The styles match the shared Aetheros design used on index.html and page2.html.
+-->
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Meet the founders of Aetheros Aerospace and get in touch. A Thriving in the Tech Age class project.">
+  <title>About Us &amp; Contact | Aetheros Aerospace</title>
+  <!-- Internal CSS: same colors, fonts, and layout rules as the other Aetheros pages. -->
+  <style>
+:root { --navy: #142936; --muted: #58636a; --orange: #c74a22; --paper: #f8f7f3; --line: #dcdedb; }
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; color: var(--navy); background: var(--paper); font-family: Arial, Helvetica, sans-serif; line-height: 1.6; }
+a { color: inherit; text-decoration: none; }
+a:focus-visible { outline: 3px solid var(--orange); outline-offset: 6px; }
+header, main, footer { max-width: 1360px; margin: auto; }
+header { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 28px 48px; border-bottom: 1px solid var(--line); }
+.brand { display: flex; align-items: center; gap: 12px; font-weight: 800; font-size: 20px; letter-spacing: 2px; line-height: 1.1; }
+.brand small { display: block; font-size: 9px; letter-spacing: 4px; margin-top: 6px; }
+.brand-icon { font-size: 42px; letter-spacing: -8px; padding-right: 14px; }
+.brand-icon span { font-size: 30px; color: var(--orange); }
+nav { display: flex; gap: 30px; font-size: 13px; font-weight: 700; }
+nav a:hover, nav a.current { color: var(--orange); }
+h1, h2, h3, p { margin-top: 0; }
+h1 { font-size: clamp(42px, 5vw, 68px); line-height: 1.04; letter-spacing: -3px; margin-bottom: 24px; }
+h1 em { font-style: normal; color: var(--orange); }
+h2 { font-size: clamp(26px, 3vw, 36px); line-height: 1.16; letter-spacing: -1px; margin-bottom: 0; }
+h3 { font-size: 21px; letter-spacing: -.5px; line-height: 1.2; margin-bottom: 10px; }
+p { color: var(--muted); }
+.eyebrow { font-size: 10px; font-weight: 800; letter-spacing: 1.8px; margin: 0 0 18px; color: var(--navy); }
+.section .eyebrow { color: var(--orange); margin-bottom: 10px; }
+.orange-dot { display: inline-block; width: 7px; height: 7px; background: var(--orange); border-radius: 50%; margin-right: 7px; }
+.hero { display: grid; grid-template-columns: 1fr 1fr; padding: 64px 48px 62px; gap: 38px; align-items: center; }
+.intro { max-width: 460px; font-size: 16px; margin-bottom: 28px; }
+.button { display: inline-flex; gap: 36px; align-items: center; background: var(--navy); color: white; padding: 14px 22px; font-size: 13px; font-weight: 700; }
+.button:hover { background: var(--orange); }
+.button.ghost { background: transparent; color: var(--navy); border: 1px solid var(--navy); }
+.button.ghost:hover { background: var(--navy); color: white; }
+.cta-row { display: flex; gap: 14px; flex-wrap: wrap; }
+.hero-art { background: #172d3e; color: #cfdae3; border-radius: 3px; overflow: hidden; }
+.art-label { display: block; font-family: monospace; font-size: 10px; padding: 24px 24px 0; letter-spacing: 1px; }
+img { display: block; width: 100%; height: auto; }
+.art-bottom { display: flex; justify-content: space-between; padding: 0 24px 22px; font-family: monospace; font-size: 9px; letter-spacing: .6px; }
+.section { padding: 45px 48px 64px; border-top: 1px solid var(--line); }
+.section-heading { display: flex; justify-content: space-between; align-items: flex-end; gap: 30px; margin-bottom: 28px; }
+.section-heading > p { font-size: 12px; margin-bottom: 2px; }
+.pitch { display: grid; grid-template-columns: 1fr 1.4fr; gap: 50px; align-items: start; }
+.pitch p { font-size: 17px; margin-bottom: 0; }
+.grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+.card { background: white; border: 1px solid var(--line); padding: 26px 22px; display: flex; flex-direction: column; }
+.card .num { color: var(--orange); font-weight: 800; font-size: 14px; margin-bottom: 16px; }
+.card p { font-size: 13px; margin-bottom: 18px; }
+.card .more { margin-top: auto; font-size: 12px; font-weight: 700; color: var(--navy); }
+.card .more:hover { color: var(--orange); }
+.trust { margin: 0 48px 64px; background: #172d3e; color: white; display: grid; grid-template-columns: 1.3fr 1fr; padding: 40px 44px; gap: 50px; }
+.trust .eyebrow { color: #ffac86; font-size: 9px; margin-bottom: 14px; }
+.trust blockquote { margin: 0; font-size: 24px; line-height: 1.35; letter-spacing: -.5px; }
+.trust cite { display: block; margin-top: 16px; font-style: normal; font-size: 12px; color: #ccd5dc; }
+.trust-side { border-left: 1px solid #526370; padding-left: 44px; }
+.trust-side p { color: #ccd5dc; font-size: 13px; }
+.trust-side h3 { color: white; font-size: 18px; margin-bottom: 8px; }
+.badge { display: inline-block; background: #f8ac83; color: #182b38; font-size: 10px; font-weight: 800; letter-spacing: 1px; padding: 4px 9px; margin-bottom: 12px; }
+footer { display: flex; justify-content: space-between; align-items: center; gap: 30px; border-top: 1px solid var(--line); padding: 28px 48px; font-size: 10px; color: var(--muted); }
+footer p { margin: 0; font-size: 10px; }
+.footer-brand { color: var(--navy); font-size: 12px; font-weight: 800; letter-spacing: 1px; }
+.footer-brand span { color: var(--orange); }
+@media (max-width: 1050px) { .grid-4 { grid-template-columns: repeat(2, 1fr); } .trust { grid-template-columns: 1fr; gap: 28px; } .trust-side { border-left: 0; border-top: 1px solid #526370; padding: 24px 0 0; } }
+@media (max-width: 700px) { header { padding: 22px; flex-direction: column; align-items: flex-start; gap: 20px; } nav { gap: 22px; font-size: 12px; flex-wrap: wrap; } .hero, .pitch { grid-template-columns: 1fr; } .hero { padding: 40px 22px; gap: 30px; } .section { padding: 36px 22px; } .section-heading { display: block; } .trust { margin: 0 22px 40px; padding: 28px; } footer { padding: 28px 22px; flex-direction: column; align-items: flex-start; gap: 16px; } }
+@media (max-width: 440px) { .grid-4 { grid-template-columns: 1fr; } }
+/* Page 3 additions */
+.story p { font-size: 15px; }
+.team-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+.founder { background: white; border: 1px solid var(--line); padding: 26px 24px; display: flex; gap: 20px; align-items: flex-start; }
+.avatar { flex: none; width: 64px; height: 64px; border-radius: 50%; background: var(--navy); color: white; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 20px; letter-spacing: 1px; border: 3px solid var(--orange); }
+.role { color: var(--orange); font-size: 9px; font-weight: 800; letter-spacing: 1.2px; margin-bottom: 6px; }
+.founder p:not(.role) { font-size: 13px; margin-bottom: 0; }
+.contact-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 24px; }
+form { background: white; border: 1px solid var(--line); padding: 28px 26px; display: grid; gap: 14px; }
+label { font-size: 11px; font-weight: 800; letter-spacing: 1px; display: grid; gap: 6px; }
+input, select, textarea { font: inherit; font-size: 14px; color: var(--navy); padding: 10px 12px; border: 1px solid var(--line); background: var(--paper); }
+input:focus, select:focus, textarea:focus { outline: 2px solid var(--orange); border-color: transparent; }
+form button { justify-self: start; border: 0; cursor: pointer; font-family: inherit; }
+.form-note { font-size: 10px; margin: 0; }
+.details { background: #172d3e; color: white; padding: 28px 26px; }
+.details h3 { font-size: 18px; color: white; margin-bottom: 14px; }
+.details dl { margin: 0 0 22px; display: grid; grid-template-columns: auto 1fr; gap: 8px 18px; font-size: 13px; }
+.details dt { color: #ffac86; font-size: 10px; font-weight: 800; letter-spacing: 1px; padding-top: 3px; }
+.details dd { margin: 0; color: #ccd5dc; }
+.hours { width: 100%; border-collapse: collapse; font-size: 13px; }
+.hours td { padding: 6px 0; border-bottom: 1px solid #2c4456; color: #ccd5dc; }
+.hours td:last-child { text-align: right; color: white; }
+.faq details { border-top: 1px solid var(--line); padding: 16px 0; }
+.faq details:last-child { border-bottom: 1px solid var(--line); }
+.faq summary { cursor: pointer; font-weight: 700; font-size: 16px; list-style: none; display: flex; justify-content: space-between; gap: 20px; }
+.faq summary::after { content: "+"; color: var(--orange); font-size: 20px; line-height: 1; }
+.faq details[open] summary::after { content: "−"; }
+.faq details p { margin: 10px 0 0; font-size: 14px; max-width: 760px; }
+@media (max-width: 1050px) { .team-grid, .contact-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <header>
+    <a class="brand" href="index.html" aria-label="Aetheros Aerospace home"><span class="brand-icon" aria-hidden="true">A<span>↗</span></span><span>AETHEROS<small>AEROSPACE</small></span></a>
+    <nav aria-label="Site navigation">
+      <a href="index.html">Home</a>
+      <a href="page2.html">Products &amp; Services</a>
+      <a class="current" href="page3.html">About &amp; Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Origin story -->
+    <section class="hero">
+      <div class="story">
+        <p class="eyebrow"><span class="orange-dot"></span> OUR STORY</p>
+        <h1>It started with a <em>loud idea.</em></h1>
+        <p>Aetheros began in a borrowed garage in Columbia, South Carolina, where two USC students spent their weekends taking apart a broken lawn mower engine "just to see how it works." One wanted to build a business. The other wanted to build something that could talk to satellites. Somewhere between the spare parts and late-night pizza, they realized they wanted the same thing: to make flight more powerful and more possible for small teams with big ideas.</p>
+        <p>Today, Aetheros designs propulsion systems and engineering services for aircraft startups, university flight teams, and private builders. The garage is gone, but the loud ideas are still here.</p>
+      </div>
+      <div class="hero-art">
+        <span class="art-label">THE FIRST HANGAR / COLUMBIA, SC</span>
+        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2MDAgNDAwIiByb2xlPSJpbWciPgogIDx0aXRsZT5JbGx1c3RyYXRpb24gb2YgdGhlIEFldGhlcm9zIGZvdW5kZXJzJyBmaXJzdCB3b3Jrc2hvcCwgYSBnYXJhZ2UgaGFuZ2FyIHdpdGggYSBqZXQgZW5naW5lIG9uIGEgc3RhbmQ8L3RpdGxlPgogIDxkZWZzPjxwYXR0ZXJuIGlkPSJnIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiPjxwYXRoIGQ9Ik00MCAwSDBWNDAiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2E3YmZkNCIgc3Ryb2tlLW9wYWNpdHk9Ii4xIi8+PC9wYXR0ZXJuPjwvZGVmcz4KICA8cmVjdCB3aWR0aD0iNjAwIiBoZWlnaHQ9IjQwMCIgZmlsbD0idXJsKCNnKSIvPgogIDxwYXRoIGQ9Ik05MCAzMjBWMTcwTDMwMCA4MCA1MTAgMTcwVjMyMCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjOGVhMmI0IiBzdHJva2Utd2lkdGg9IjQiLz4KICA8cGF0aCBkPSJNMTMwIDMyMFYyMDBINDcwVjMyMCIgZmlsbD0iIzEwMjQzNiIgc3Ryb2tlPSIjNTI2NTc1IiBzdHJva2Utd2lkdGg9IjMiLz4KICA8cGF0aCBkPSJNMTMwIDIyNUg0NzBNMTMwIDI1MEg0NzBNMTMwIDI3NUg0NzAiIHN0cm9rZT0iIzIwMzY0YiIgc3Ryb2tlLXdpZHRoPSIzIi8+CiAgPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMzAwIDI1NSkiPgogICAgPHBhdGggZD0iTS0yMCAtNDBMNjAgLTI1IDg1IC0xMlYxMkw2MCAyNSAtMjAgNDBaIiBmaWxsPSIjOGVhMmI0IiBzdHJva2U9IiNlM2VhZjAiIHN0cm9rZS13aWR0aD0iMiIvPgogICAgPGVsbGlwc2UgY3g9Ii0yMCIgY3k9IjAiIHJ4PSIzMCIgcnk9IjQwIiBmaWxsPSIjYTViN2M3IiBzdHJva2U9IiNlM2VhZjAiIHN0cm9rZS13aWR0aD0iMiIvPgogICAgPGVsbGlwc2UgY3g9Ii0yMCIgY3k9IjAiIHJ4PSIyMiIgcnk9IjMxIiBmaWxsPSIjMTAyNDM2Ii8+CiAgICA8ZWxsaXBzZSBjeD0iLTIwIiBjeT0iMCIgcng9IjciIHJ5PSI5IiBmaWxsPSIjZmY4MTRkIi8+CiAgICA8cGF0aCBkPSJNLTEwIDQwTC0yNSA2NU01MCAyNUw2NSA2NU0tMzUgNjVIODAiIHN0cm9rZT0iI2M3ZDFkYiIgc3Ryb2tlLXdpZHRoPSI0Ii8+CiAgPC9nPgogIDxwYXRoIGQ9Ik02MCAzNDBINTQwIiBzdHJva2U9IiM1MjY1NzUiIHN0cm9rZS13aWR0aD0iMiIvPgogIDxjaXJjbGUgY3g9IjMwMCIgY3k9IjEzNSIgcj0iMTIiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZmODU1NyIgc3Ryb2tlLXdpZHRoPSIzIi8+PHBhdGggZD0iTTMwMCAxMjNWMTQ3TTI4OCAxMzVIMzEyIiBzdHJva2U9IiNmZjg1NTciIHN0cm9rZS13aWR0aD0iMiIvPgogIDxwYXRoIGQ9Ik00MCA2MEgxNTBNNDUwIDM2MEg1NjAiIHN0cm9rZT0iI2ZmODU1NyIvPjxjaXJjbGUgY3g9IjE1MCIgY3k9IjYwIiByPSI0IiBmaWxsPSIjZmY4NTU3Ii8+PGNpcmNsZSBjeD0iNDUwIiBjeT0iMzYwIiByPSI0IiBmaWxsPSIjZmY4NTU3Ii8+Cjwvc3ZnPgo=" width="600" height="400" alt="Illustration of the Aetheros founders' first workshop, a garage hangar with a jet engine on a stand">
+        <div class="art-bottom"><span>WHERE IT ALL BEGAN.</span><span aria-hidden="true">EST. 2026</span></div>
+      </div>
+    </section>
+
+    <!-- Meet the founders -->
+    <section class="section">
+      <div class="section-heading">
+        <div><p class="eyebrow">MEET THE FOUNDERS</p><h2>The crew behind the thrust.</h2></div>
+        <p>Two founders. Zero missed launch dates.<br>(We are counting this one.)</p>
+      </div>
+      <div class="team-grid">
+        <article class="founder">
+          <div class="avatar" aria-hidden="true">CA</div>
+          <div><p class="role">CO-FOUNDER &amp; CHIEF EXECUTIVE OFFICER</p><h3>Coty Aiton</h3><p>Coty runs the business side of Aetheros, from building our product lineup to pricing every engine on the catalog. He believes every great aircraft starts with a great conversation, and he will happily talk propulsion with anyone who asks.</p></div>
+        </article>
+        <article class="founder">
+          <div class="avatar" aria-hidden="true">TL</div>
+          <div><p class="role">CO-FOUNDER &amp; CHIEF TECHNOLOGY OFFICER</p><h3>Tyrek "Reeko" Long</h3><p>Reeko leads technology, cybersecurity, and the Aetheros website. When he is not keeping our systems secure, he works on satellite communications as an NCO in the Army National Guard, which is why our engines always know where they are.</p></div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Contact form and details -->
+    <section class="section" id="contact">
+      <div class="section-heading">
+        <div><p class="eyebrow">GET IN TOUCH</p><h2>Let's plan your next launch.</h2></div>
+        <p>Questions, quotes, or just want to say hi?<br>We reply within one business day.</p>
+      </div>
+      <div class="contact-grid">
+        <form action="#" onsubmit="event.preventDefault(); this.querySelector('.form-note').textContent = 'Thanks! This is a class demo, so no message was actually sent.';">
+          <label>NAME<input type="text" name="name" placeholder="Your name" required></label>
+          <label>EMAIL<input type="email" name="email" placeholder="you@example.com" required></label>
+          <label>I AM INTERESTED IN
+            <select name="topic">
+              <option>AeroJet 200</option>
+              <option>Vector TP-50</option>
+              <option>IonCore E-1</option>
+              <option>FlightLab Analysis</option>
+              <option>Something else</option>
+            </select>
+          </label>
+          <label>MESSAGE<textarea name="message" rows="4" placeholder="Tell us about your project"></textarea></label>
+          <button class="button" type="submit">Send message <span aria-hidden="true">↗</span></button>
+          <p class="form-note">Classroom demonstration only; no messages are sent.</p>
+        </form>
+        <div class="details">
+          <h3>Contact details</h3>
+          <dl>
+            <dt>EMAIL</dt><dd>hello@aetherosaero.com</dd>
+            <dt>PHONE</dt><dd>(803) 555-0142</dd>
+            <dt>HQ</dt><dd>Hangar Room 1A, 1244 Blossom St, Columbia, SC 29208</dd>
+            <dt>SOCIAL</dt><dd>@AetherosAero on Instagram, X, and LinkedIn</dd>
+          </dl>
+          <h3>Hours of operation</h3>
+          <table class="hours">
+            <tr><td>Monday to Friday</td><td>8:00 AM to 6:00 PM</td></tr>
+            <tr><td>Saturday</td><td>10:00 AM to 2:00 PM</td></tr>
+            <tr><td>Sunday</td><td>Closed (engine nap day)</td></tr>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section faq">
+      <p class="eyebrow">FAQ</p>
+      <h2 style="margin-bottom: 24px;">Questions we hear a lot.</h2>
+      <details><summary>Do you ship engines to dorm rooms?</summary><p>Sadly, no. An AeroJet 200 is about the size of a small car and will not fit through a residence hall door. We ship to hangars, workshops, and airfields only.</p></details>
+      <details><summary>Can I test drive an engine before I buy?</summary><p>Yes, kind of. Our FlightLab Analysis service lets you run virtual airflow tests on your design before you commit, no runway required.</p></details>
+      <details><summary>Is the electric IonCore E-1 really quiet?</summary><p>Quiet enough that our team once ran it during a group meeting and nobody noticed. Results may vary.</p></details>
+      <details><summary>Do you offer student discounts?</summary><p>University flight teams get 15% off FlightLab Analysis. Reach out through the form above with your team name.</p></details>
+    </section>
+  </main>
+
+  <footer><a class="footer-brand" href="index.html">AETHEROS AEROSPACE <span aria-hidden="true">↗</span></a><p>A fictional company created for Thriving in the Tech Age.<br>All products, services, features, and prices are fictional.</p><span>© 2026 Aetheros Aerospace</span></footer>
+</body>
+</html>

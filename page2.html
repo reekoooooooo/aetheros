@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Author: Andrew Aiton | Date: November 5, 2026 -->
+<!--
+Generative AI acknowledgment:
+ChatGPT was used on November 5, 2026, to generate the initial HTML and CSS,
+page layout, SVG product illustrations, fictional product descriptions,
+feature lists, prices, promotional content, and setup instructions.
+ChatGPT also assisted with revisions to address the assignment requirements
+with drafting this acknowledgment, and with packaging the page as a
+self-contained HTML file to avoid missing stylesheet or image files.
+-->
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Explore Aetheros Aerospace's fictional propulsion systems and engineering services. A Thriving in the Tech Age class project.">
+  <title>Products & Services | Aetheros Aerospace</title>
+  <!-- Internal CSS: all page styles are included here so the layout opens on its own. -->
+  <style>
+/* Aetheros catalog: plain CSS, no libraries or external fonts required. */
+:root { --navy: #142936; --muted: #58636a; --orange: #c74a22; --paper: #f8f7f3; --line: #dcdedb; }
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 24px; }
+body { margin: 0; color: var(--navy); background: var(--paper); font-family: Arial, Helvetica, sans-serif; line-height: 1.6; }
+a { color: inherit; text-decoration: none; }
+a:focus-visible { outline: 3px solid var(--orange); outline-offset: 6px; }
+.skip-link { position: absolute; top: -100px; left: 16px; z-index: 10; background: white; padding: 12px; }
+.skip-link:focus { top: 12px; }
+.site-header, main, footer { max-width: 1360px; margin: auto; }
+.site-header { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 28px 48px; border-bottom: 1px solid var(--line); }
+.brand { display: flex; align-items: center; gap: 12px; font-weight: 800; font-size: 20px; letter-spacing: 2px; line-height: 1.1; }
+.brand small { display: block; font-size: 9px; letter-spacing: 4px; margin-top: 6px; }
+.brand-icon { font-size: 42px; letter-spacing: -8px; position: relative; padding-right: 14px; }
+.brand-icon span { font-size: 30px; color: var(--orange); }
+nav { display: flex; gap: 30px; font-size: 13px; font-weight: 700; }
+nav a:hover { color: var(--orange); }
+nav a:last-child span { margin-left: 10px; }
+.hero { display: grid; grid-template-columns: 1fr 1fr; padding: 64px 48px 62px; gap: 38px; align-items: center; }
+.eyebrow { font-size: 10px; font-weight: 800; letter-spacing: 1.8px; margin: 0 0 18px; }
+.orange-dot { display: inline-block; width: 7px; height: 7px; background: var(--orange); border-radius: 50%; margin-right: 7px; }
+h1, h2, h3, p { margin-top: 0; }
+h1 { font-size: clamp(42px, 5vw, 68px); line-height: 1.04; letter-spacing: -3px; margin-bottom: 24px; }
+h1 em { font-style: normal; color: var(--orange); }
+.intro { max-width: 440px; font-size: 16px; color: var(--muted); margin-bottom: 28px; }
+.button { display: inline-flex; gap: 36px; align-items: center; background: var(--navy); color: white; padding: 14px 22px; font-size: 13px; font-weight: 700; }
+.button:hover { background: var(--orange); }
+.hero-note { color: var(--muted); font-size: 11px; margin: 18px 0 0; }
+.hero-art { background: #172d3e; color: #cfdae3; border-radius: 3px; overflow: hidden; }
+.art-label { display: block; font-family: monospace; font-size: 10px; padding: 24px 24px 0; letter-spacing: 1px; }
+.hero-art img { display: block; width: 100%; height: auto; }
+.art-bottom { display: flex; justify-content: space-between; padding: 0 24px 22px; font-family: monospace; font-size: 9px; letter-spacing: .6px; }
+.section { padding: 45px 48px 64px; }
+.catalog { border-top: 1px solid var(--line); }
+.section-heading { display: flex; justify-content: space-between; align-items: flex-end; gap: 30px; margin-bottom: 28px; }
+.section-heading .eyebrow { margin-bottom: 10px; color: var(--orange); }
+h2 { font-size: clamp(26px, 3vw, 36px); line-height: 1.16; letter-spacing: -1px; margin-bottom: 0; }
+.section-heading > p { font-size: 12px; color: var(--muted); margin-bottom: 2px; }
+.product-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+.product-card { background: white; border: 1px solid var(--line); display: flex; flex-direction: column; }
+.product-art { height: 188px; position: relative; padding-top: 18px; overflow: hidden; }
+.product-art svg { display: block; width: 100%; height: 170px; }
+.blue-art { background: #e5edf0; }.sand-art { background: #eee9df; }.green-art { background: #e3ede7; }.lilac-art { background: #ebe7f0; }
+.tag, .model-number { position: absolute; left: 14px; top: 12px; font-size: 8px; font-weight: 800; letter-spacing: 1px; }
+.tag { background: var(--navy); color: white; padding: 3px 7px; }
+.model-number { color: #465159; }
+.product-body { padding: 22px 18px 18px; display: flex; flex-direction: column; flex: 1; }
+.category { color: var(--orange); font-size: 8px; font-weight: 800; letter-spacing: 1.2px; margin-bottom: 8px; }
+h3 { font-size: 21px; letter-spacing: -.5px; line-height: 1.2; margin-bottom: 12px; }
+.product-body > p:not(.category) { color: var(--muted); font-size: 12px; margin-bottom: 14px; }
+.product-body ul { padding-left: 15px; margin: auto 0 20px; font-size: 10px; color: #46545d; }
+.product-body li { padding: 2px 0; }.product-body li::marker { color: var(--orange); }
+.price-row { border-top: 1px solid var(--line); padding-top: 14px; display: flex; flex-direction: column; }
+.price-row strong { font-size: 22px; letter-spacing: -.6px; }.price-row span { font-size: 10px; color: var(--muted); }
+.promo { margin: 0 48px 22px; background: #172d3e; color: white; display: grid; grid-template-columns: 1fr 1fr; padding: 40px 44px; gap: 50px; }
+.promo .eyebrow { color: #ffac86; font-size: 9px; margin-bottom: 14px; }.promo h2 { font-size: 39px; }
+.promo p:not(.eyebrow) { font-size: 12px; color: #ccd5dc; max-width: 390px; margin: 18px 0 0; }
+.promo-deal { border-left: 1px solid #526370; padding-left: 48px; display: flex; flex-direction: column; justify-content: center; }
+.deal-label { font-size: 10px; letter-spacing: 2px; color: #ffac86; }.promo-deal > strong { font-size: 60px; line-height: 1.2; letter-spacing: -2px; }
+.promo-deal p:not(.eyebrow) { margin: 8px 0; }code { padding: 4px 9px; background: #f8ac83; color: #182b38; font-size: 15px; letter-spacing: 1px; font-weight: 700; }
+.discount-price { display: flex; gap: 15px; flex-wrap: wrap; }.discount-price s { color: #b5c4cf; }.discount-price b { color: white; }
+.promo small { font-size: 9px; line-height: 1.7; color: #b6c4ce; margin-top: 8px; }
+.process .eyebrow { color: var(--orange); }.steps { display: grid; grid-template-columns: repeat(3, 1fr); padding: 0; list-style: none; gap: 36px; margin: 36px 0 0; counter-reset: step; }
+.steps li { border-top: 1px solid var(--line); padding-top: 20px; position: relative; }.step-number { display: block; font-size: 14px; color: var(--orange); font-weight: 800; margin-bottom: 18px; }.steps h3 { font-size: 20px; }.steps p { font-size: 13px; color: var(--muted); max-width: 315px; margin-bottom: 0; }
+footer { display: flex; justify-content: space-between; align-items: center; gap: 30px; border-top: 1px solid var(--line); padding: 28px 48px; font-size: 10px; color: var(--muted); }footer p { margin: 0; }.footer-brand { color: var(--navy); font-size: 12px; font-weight: 800; letter-spacing: 1px; }.footer-brand span { color: var(--orange); }
+@media (min-width: 1500px) { .hero { padding-top: 80px; padding-bottom: 80px; } }
+@media (max-width: 1050px) { .product-grid { grid-template-columns: repeat(2, 1fr); }.product-art { height: 210px; }.product-art svg { height: 190px; }h1 { font-size: 48px; }.promo { gap: 28px; padding: 32px; }.promo-deal { padding-left: 28px; } }
+@media (max-width: 700px) { .site-header { padding: 22px; align-items: flex-start; flex-direction: column; gap: 20px; }nav { gap: 22px; font-size: 12px; flex-wrap: wrap; }.hero { grid-template-columns: 1fr; padding: 40px 22px; gap: 30px; }h1 { font-size: clamp(38px, 10vw, 58px); letter-spacing: -2px; }.section { padding: 36px 22px; }.section-heading { display: block; }.section-heading > p { margin-top: 16px; }.product-grid { gap: 14px; }.promo { margin: 0 22px; grid-template-columns: 1fr; padding: 28px; gap: 28px; }.promo-deal { border-left: 0; border-top: 1px solid #526370; padding: 24px 0 0; }.steps { grid-template-columns: 1fr; gap: 24px; }.step-number { margin-bottom: 10px; }.steps p { max-width: none; }footer { padding: 28px 22px; flex-direction: column; align-items: flex-start; gap: 16px; } }
+@media (max-width: 440px) { .product-grid { grid-template-columns: 1fr; }.product-art { height: 200px; }.product-body { padding: 22px; }.product-body > p:not(.category) { font-size: 14px; }.product-body ul { font-size: 12px; }.category { font-size: 9px; }.art-bottom { font-size: 8px; }.promo-deal > strong { font-size: 52px; } }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="Aetheros Aerospace home"><span class="brand-icon" aria-hidden="true">A<span>↗</span></span><span>AETHEROS<small>AEROSPACE</small></span></a>
+    <nav aria-label="Page navigation">
+      <a href="index.html">Home</a>
+      <a href="#catalog">Our catalog</a>
+      <a href="#process">How it works</a>
+      <a href="#featured">Special offer</a>
+      <a href="page3.html">About &amp; Contact <span aria-hidden="true">↗</span></a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="orange-dot"></span> ENGINEERING THE NEXT HORIZON</p>
+        <h1 id="hero-title">Big ideas.<br>Even bigger <em>thrust.</em></h1>
+        <p class="intro">From electric flight to powerful jet engines, discover propulsion systems and engineering support built for your next big idea.</p>
+        <a class="button" href="#catalog">Explore the catalog <span aria-hidden="true">↗</span></a>
+        <p class="hero-note">Propulsion systems · Engineering services</p>
+      </div>
+      <div class="hero-art">
+        <span class="art-label">AEROJET 200 / CONCEPT SERIES</span>
+        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2MDAgNDAwIiByb2xlPSJpbWciIGFyaWEtbGFiZWxsZWRieT0iaGVyby1hcnQtdGl0bGUiPgogICAgICAgICAgPHRpdGxlIGlkPSJoZXJvLWFydC10aXRsZSI+SWxsdXN0cmF0aW9uIG9mIGEgamV0IGVuZ2luZSB3aXRoIGEgbGFyZ2UgaW50YWtlIGZhbiBhbmQgb3JhbmdlIGV4aGF1c3Q8L3RpdGxlPgogICAgICAgICAgPGRlZnM+CiAgICAgICAgICAgIDxsaW5lYXJHcmFkaWVudCBpZD0ibWV0YWwiIHgyPSIwIiB5Mj0iMSI+PHN0b3Agc3RvcC1jb2xvcj0iI2M3ZDFkYiIvPjxzdG9wIG9mZnNldD0iLjUiIHN0b3AtY29sb3I9IiM3MTg4OWUiLz48c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiMyYjQyNTkiLz48L2xpbmVhckdyYWRpZW50PgogICAgICAgICAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImZsYW1lIj48c3RvcCBzdG9wLWNvbG9yPSIjZmZiMzZiIi8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjZmY2YjMyIiBzdG9wLW9wYWNpdHk9IjAiLz48L2xpbmVhckdyYWRpZW50PgogICAgICAgICAgICA8cGF0dGVybiBpZD0iZ3JpZCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj48cGF0aCBkPSJNNDAgMEgwVjQwIiBmaWxsPSJub25lIiBzdHJva2U9IiNhN2JmZDQiIHN0cm9rZS1vcGFjaXR5PSIuMSIvPjwvcGF0dGVybj4KICAgICAgICAgIDwvZGVmcz4KICAgICAgICAgIDxwYXRoIGZpbGw9InVybCgjZ3JpZCkiIGQ9Ik0wIDBINjAwVjQwMEgweiIvPgogICAgICAgICAgPGNpcmNsZSBjeD0iMjgwIiBjeT0iMjEwIiByPSIxNTciIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzUyNjU3NSIgc3Ryb2tlLWRhc2hhcnJheT0iNSA4Ii8+CiAgICAgICAgICA8ZyB0cmFuc2Zvcm09InJvdGF0ZSgtMTIgMzAwIDIxMCkiPgogICAgICAgICAgICA8cGF0aCBkPSJNNDMwIDE3Nkw1ODMgMjA5IDQzMCAyNDBaIiBmaWxsPSJ1cmwoI2ZsYW1lKSIvPgogICAgICAgICAgICA8cGF0aCBkPSJNMjI0IDExMUwzOTcgMTUzIDQ1NSAxODFWMjQxTDM5NyAyNjcgMjI0IDMwOVoiIGZpbGw9InVybCgjbWV0YWwpIiBzdHJva2U9IiNjN2QxZGIiIHN0cm9rZS13aWR0aD0iMiIvPgogICAgICAgICAgICA8cGF0aCBkPSJNMzI4IDEzOFYyODJNMzYxIDE0NlYyNzNNMzk2IDE1NFYyNjZNNDI1IDE2OVYyNTEiIHN0cm9rZT0iIzIwMzY0YiIgc3Ryb2tlLXdpZHRoPSI3Ii8+CiAgICAgICAgICAgIDxwYXRoIGQ9Ik0yNTAgMTE3TDI5NSA1OSAzMzIgNjUgMzI1IDEzNiIgZmlsbD0iIzhlYTJiNCIgc3Ryb2tlPSIjY2FkNGRlIiBzdHJva2Utd2lkdGg9IjIiLz4KICAgICAgICAgICAgPGVsbGlwc2UgY3g9IjIyNCIgY3k9IjIxMCIgcng9Ijg0IiByeT0iMTAwIiBmaWxsPSIjYTViN2M3IiBzdHJva2U9IiNlM2VhZjAiIHN0cm9rZS13aWR0aD0iMyIvPgogICAgICAgICAgICA8ZWxsaXBzZSBjeD0iMjI0IiBjeT0iMjEwIiByeD0iNzAiIHJ5PSI4NSIgZmlsbD0iIzEwMjQzNiIgc3Ryb2tlPSIjNTE2Zjg4IiBzdHJva2Utd2lkdGg9IjUiLz4KICAgICAgICAgICAgPGcgZmlsbD0iIzdkOTRhOSIgc3Ryb2tlPSIjYjdjN2Q0IiBzdHJva2Utd2lkdGg9IjEiPgogICAgICAgICAgICAgIDxwYXRoIGlkPSJibGFkZSIgZD0iTTIyNCAyMDVRMTc3IDE1MSAyMTkgMTMxTDIzNSAxOTdaIi8+CiAgICAgICAgICAgICAgPHVzZSBocmVmPSIjYmxhZGUiIHRyYW5zZm9ybT0icm90YXRlKDQwIDIyNCAyMTApIi8+PHVzZSBocmVmPSIjYmxhZGUiIHRyYW5zZm9ybT0icm90YXRlKDgwIDIyNCAyMTApIi8+PHVzZSBocmVmPSIjYmxhZGUiIHRyYW5zZm9ybT0icm90YXRlKDEyMCAyMjQgMjEwKSIvPjx1c2UgaHJlZj0iI2JsYWRlIiB0cmFuc2Zvcm09InJvdGF0ZSgxNjAgMjI0IDIxMCkiLz48dXNlIGhyZWY9IiNibGFkZSIgdHJhbnNmb3JtPSJyb3RhdGUoMjAwIDIyNCAyMTApIi8+PHVzZSBocmVmPSIjYmxhZGUiIHRyYW5zZm9ybT0icm90YXRlKDI0MCAyMjQgMjEwKSIvPjx1c2UgaHJlZj0iI2JsYWRlIiB0cmFuc2Zvcm09InJvdGF0ZSgyODAgMjI0IDIxMCkiLz48dXNlIGhyZWY9IiNibGFkZSIgdHJhbnNmb3JtPSJyb3RhdGUoMzIwIDIyNCAyMTApIi8+CiAgICAgICAgICAgIDwvZz4KICAgICAgICAgICAgPGVsbGlwc2UgY3g9IjIyNCIgY3k9IjIxMCIgcng9IjE4IiByeT0iMjMiIGZpbGw9IiNkNGRmZTgiLz4KICAgICAgICAgIDwvZz4KICAgICAgICAgIDxwYXRoIGQ9Ik03MiAzMjRIMjAwTTQyMCA4M0g1MzAiIHN0cm9rZT0iI2ZmODU1NyIvPjxjaXJjbGUgY3g9IjIwMCIgY3k9IjMyNCIgcj0iNCIgZmlsbD0iI2ZmODU1NyIvPjxjaXJjbGUgY3g9IjQyMCIgY3k9IjgzIiByPSI0IiBmaWxsPSIjZmY4NTU3Ii8+CiAgICAgICAgPC9zdmc+Cg==" width="600" height="400" alt="Aetheros AeroJet 200 engine concept with a large intake fan and orange exhaust">
+        <div class="art-bottom"><span>PRECISION IN EVERY PART.</span><span aria-hidden="true">01 / 04</span></div>
+      </div>
+    </section>
+
+    <section class="catalog section" id="catalog" aria-labelledby="catalog-title">
+      <div class="section-heading"><div><p class="eyebrow">THE AETHEROS LINEUP</p><h2 id="catalog-title">Your mission. Our momentum.</h2></div><p>Four ways to move your vision forward.<br>All prices shown in USD.</p></div>
+      <div class="product-grid">
+        <article class="product-card">
+          <div class="product-art blue-art"><span class="tag">BESTSELLER</span>
+            <svg viewBox="0 0 320 180" role="img" aria-label="Illustration of the AeroJet 200 turbofan engine"><path d="M113 51L231 75 265 90V125L231 142 113 161Z" fill="#879eb1" stroke="#17364d" stroke-width="3"/><path d="M184 66V147M215 73V142M240 80V136" stroke="#25475e" stroke-width="8"/><ellipse cx="113" cy="106" rx="45" ry="55" fill="#dae5ec" stroke="#17364d" stroke-width="3"/><ellipse cx="113" cy="106" rx="34" ry="43" fill="#17364d"/><path d="M113 65V147M81 106H145M91 76L136 137M91 137L136 76" stroke="#9db6c8" stroke-width="7"/><ellipse cx="113" cy="106" rx="10" ry="13" fill="#ff814d"/><path d="M164 61L183 29H210L202 69" fill="#9db3c2" stroke="#17364d" stroke-width="3"/></svg>
+          </div>
+          <div class="product-body"><p class="category">JET PROPULSION</p><h3>AeroJet 200</h3><p>Big ambition meets serious power. Our signature turbofan concept brings your next aircraft design to life.</p><ul><li>Compact turbofan design</li><li>Digital engine monitoring</li><li>Installation consultation included</li></ul><div class="price-row"><strong>$2,400,000</strong><span>per engine</span></div></div>
+        </article>
+        <article class="product-card">
+          <div class="product-art sand-art"><span class="model-number">02 / VECTOR</span>
+            <svg viewBox="0 0 320 180" role="img" aria-label="Illustration of the Vector TP-50 turboprop engine"><path d="M120 69H228L260 91V118L228 138H120Z" fill="#a69b85" stroke="#463e32" stroke-width="3"/><path d="M166 72V136M189 72V136M212 72V136" stroke="#746b59" stroke-width="6"/><path d="M87 100Q51 39 81 18Q103 31 101 91M97 110Q153 132 145 162Q119 174 89 120M82 113Q23 139 18 107Q31 86 79 98" fill="#414b54"/><circle cx="91" cy="105" r="18" fill="#ef8555"/><path d="M110 95H132V115H110" fill="#d8c8ad" stroke="#463e32" stroke-width="3"/></svg>
+          </div>
+          <div class="product-body"><p class="category">PROPELLER PROPULSION</p><h3>Vector TP-50</h3><p>Built for the scenic route. A versatile turboprop concept for regional aircraft and ambitious adventures.</p><ul><li>Propeller and turbine package</li><li>Modular maintenance access</li><li>One pilot orientation session</li></ul><div class="price-row"><strong>$850,000</strong><span>per system</span></div></div>
+        </article>
+        <article class="product-card">
+          <div class="product-art green-art"><span class="model-number">03 / IONCORE</span>
+            <svg viewBox="0 0 320 180" role="img" aria-label="Illustration of the IonCore E-1 electric propulsion system"><rect x="125" y="56" width="117" height="85" rx="15" fill="#7f9c91" stroke="#244e42" stroke-width="3"/><path d="M150 61V136M168 61V136M186 61V136M204 61V136M222 61V136" stroke="#b6cec3" stroke-width="6"/><path d="M84 84Q46 24 78 19Q100 26 98 84M94 112Q140 153 114 167Q89 168 81 117M73 110Q18 122 23 93Q38 77 75 94" fill="#244e42"/><circle cx="85" cy="100" r="22" fill="#dceae2" stroke="#244e42" stroke-width="3"/><path d="M81 86L76 102H86L82 116 96 97H85L91 86Z" fill="#dc6335"/><path d="M108 90H127V110H108" fill="#b6cec3"/></svg>
+          </div>
+          <div class="product-body"><p class="category">ELECTRIC PROPULSION</p><h3>IonCore E-1</h3><p>A fresh spark for flight. Explore an electric motor package designed for experimental aircraft projects.</p><ul><li>Electric motor and controller</li><li>Battery integration planning</li><li>Remote setup support included</li></ul><div class="price-row"><strong>$125,000</strong><span>per package</span></div></div>
+        </article>
+        <article class="product-card">
+          <div class="product-art lilac-art"><span class="model-number">04 / FLIGHTLAB</span>
+            <svg viewBox="0 0 320 180" role="img" aria-label="Illustration of engineering analysis on a computer monitor"><rect x="59" y="30" width="204" height="121" rx="8" fill="#e5e0ef" stroke="#49405e" stroke-width="4"/><rect x="69" y="40" width="184" height="99" rx="3" fill="#3d3651"/><path d="M83 115H239M83 61V115" stroke="#9086a3"/><path d="M85 109L112 92 137 98 168 66 193 80 234 52" fill="none" stroke="#ff9a68" stroke-width="4"/><circle cx="168" cy="66" r="5" fill="#ff9a68"/><path d="M143 152V166H116M177 152V166H204M116 166H204" stroke="#49405e" stroke-width="5"/></svg>
+          </div>
+          <div class="product-body"><p class="category">ENGINEERING SERVICES</p><h3>FlightLab Analysis</h3><p>Put your concept to the test. Turn early designs into informed decisions with our virtual engineering team.</p><ul><li>One airflow simulation study</li><li>Design improvement report</li><li>One engineering review meeting</li></ul><div class="price-row"><strong>$4,500</strong><span>per project</span></div></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="promo" id="featured" aria-labelledby="promo-title">
+      <div><p class="eyebrow">FEATURED / AEROJET 200</p><h2 id="promo-title">More power.<br>A little less price.</h2><p>Start your next chapter with our bestseller. Save 10% on one AeroJet 200 engine with our fictional launch promotion.</p></div>
+      <div class="promo-deal"><span class="deal-label">LAUNCH SPECIAL</span><strong>10% OFF</strong><p>Use code <code>THRUST10</code></p><p class="discount-price"><s>$2,400,000</s> <b>$2,160,000</b></p><small>One engine per order. Cannot be combined with other offers.<br>Classroom demonstration only; no purchases are processed.</small></div>
+    </section>
+
+    <section class="section process" id="process" aria-labelledby="process-title">
+      <p class="eyebrow">FROM IDEA TO TAKEOFF</p><h2 id="process-title">A clear path to your next launch.</h2>
+      <ol class="steps">
+        <li><span class="step-number">01</span><h3>Choose your system</h3><p>Explore the catalog and find the propulsion system or engineering service that fits your project.</p></li>
+        <li><span class="step-number">02</span><h3>Make it your own</h3><p>Work with our fictional engineering team to plan the configuration, review your needs, and confirm pricing.</p></li>
+        <li><span class="step-number">03</span><h3>Prepare for takeoff</h3><p>Receive your system or analysis report, along with setup guidance to help move your project forward.</p></li>
+      </ol>
+    </section>
+  </main>
+  <footer><a class="footer-brand" href="index.html">AETHEROS AEROSPACE <span aria-hidden="true">↗</span></a><p>A fictional company created for Thriving in the Tech Age.<br>All products, services, features, and prices are fictional.</p><span>© 2026 Aetheros Aerospace</span></footer>
+</body>
+</html>

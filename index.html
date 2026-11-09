@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Author: Tyrek Long | Date: November 8, 2026 -->
+<!--
+Generative AI acknowledgment:
+Claude (Anthropic) was used on November 8, 2026, to help generate the HTML and CSS,
+the page layout, the SVG rocket illustration, and the fictional company copy.
+The styles match the shared Aetheros design used on page2.html.
+-->
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Aetheros Aerospace: fictional propulsion systems and engineering services. A Thriving in the Tech Age class project.">
+  <title>Home | Aetheros Aerospace</title>
+  <!-- Internal CSS: same colors, fonts, and layout rules as the other Aetheros pages. -->
+  <style>
+:root { --navy: #142936; --muted: #58636a; --orange: #c74a22; --paper: #f8f7f3; --line: #dcdedb; }
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; color: var(--navy); background: var(--paper); font-family: Arial, Helvetica, sans-serif; line-height: 1.6; }
+a { color: inherit; text-decoration: none; }
+a:focus-visible { outline: 3px solid var(--orange); outline-offset: 6px; }
+header, main, footer { max-width: 1360px; margin: auto; }
+header { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 28px 48px; border-bottom: 1px solid var(--line); }
+.brand { display: flex; align-items: center; gap: 12px; font-weight: 800; font-size: 20px; letter-spacing: 2px; line-height: 1.1; }
+.brand small { display: block; font-size: 9px; letter-spacing: 4px; margin-top: 6px; }
+.brand-icon { font-size: 42px; letter-spacing: -8px; padding-right: 14px; }
+.brand-icon span { font-size: 30px; color: var(--orange); }
+nav { display: flex; gap: 30px; font-size: 13px; font-weight: 700; }
+nav a:hover, nav a.current { color: var(--orange); }
+h1, h2, h3, p { margin-top: 0; }
+h1 { font-size: clamp(42px, 5vw, 68px); line-height: 1.04; letter-spacing: -3px; margin-bottom: 24px; }
+h1 em { font-style: normal; color: var(--orange); }
+h2 { font-size: clamp(26px, 3vw, 36px); line-height: 1.16; letter-spacing: -1px; margin-bottom: 0; }
+h3 { font-size: 21px; letter-spacing: -.5px; line-height: 1.2; margin-bottom: 10px; }
+p { color: var(--muted); }
+.eyebrow { font-size: 10px; font-weight: 800; letter-spacing: 1.8px; margin: 0 0 18px; color: var(--navy); }
+.section .eyebrow { color: var(--orange); margin-bottom: 10px; }
+.orange-dot { display: inline-block; width: 7px; height: 7px; background: var(--orange); border-radius: 50%; margin-right: 7px; }
+.hero { display: grid; grid-template-columns: 1fr 1fr; padding: 64px 48px 62px; gap: 38px; align-items: center; }
+.intro { max-width: 460px; font-size: 16px; margin-bottom: 28px; }
+.button { display: inline-flex; gap: 36px; align-items: center; background: var(--navy); color: white; padding: 14px 22px; font-size: 13px; font-weight: 700; }
+.button:hover { background: var(--orange); }
+.button.ghost { background: transparent; color: var(--navy); border: 1px solid var(--navy); }
+.button.ghost:hover { background: var(--navy); color: white; }
+.cta-row { display: flex; gap: 14px; flex-wrap: wrap; }
+.hero-art { background: #172d3e; color: #cfdae3; border-radius: 3px; overflow: hidden; }
+.art-label { display: block; font-family: monospace; font-size: 10px; padding: 24px 24px 0; letter-spacing: 1px; }
+img { display: block; width: 100%; height: auto; }
+.art-bottom { display: flex; justify-content: space-between; padding: 0 24px 22px; font-family: monospace; font-size: 9px; letter-spacing: .6px; }
+.section { padding: 45px 48px 64px; border-top: 1px solid var(--line); }
+.section-heading { display: flex; justify-content: space-between; align-items: flex-end; gap: 30px; margin-bottom: 28px; }
+.section-heading > p { font-size: 12px; margin-bottom: 2px; }
+.pitch { display: grid; grid-template-columns: 1fr 1.4fr; gap: 50px; align-items: start; }
+.pitch p { font-size: 17px; margin-bottom: 0; }
+.grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+.card { background: white; border: 1px solid var(--line); padding: 26px 22px; display: flex; flex-direction: column; }
+.card .num { color: var(--orange); font-weight: 800; font-size: 14px; margin-bottom: 16px; }
+.card p { font-size: 13px; margin-bottom: 18px; }
+.card .more { margin-top: auto; font-size: 12px; font-weight: 700; color: var(--navy); }
+.card .more:hover { color: var(--orange); }
+.trust { margin: 0 48px 64px; background: #172d3e; color: white; display: grid; grid-template-columns: 1.3fr 1fr; padding: 40px 44px; gap: 50px; }
+.trust .eyebrow { color: #ffac86; font-size: 9px; margin-bottom: 14px; }
+.trust blockquote { margin: 0; font-size: 24px; line-height: 1.35; letter-spacing: -.5px; }
+.trust cite { display: block; margin-top: 16px; font-style: normal; font-size: 12px; color: #ccd5dc; }
+.trust-side { border-left: 1px solid #526370; padding-left: 44px; }
+.trust-side p { color: #ccd5dc; font-size: 13px; }
+.trust-side h3 { color: white; font-size: 18px; margin-bottom: 8px; }
+.badge { display: inline-block; background: #f8ac83; color: #182b38; font-size: 10px; font-weight: 800; letter-spacing: 1px; padding: 4px 9px; margin-bottom: 12px; }
+footer { display: flex; justify-content: space-between; align-items: center; gap: 30px; border-top: 1px solid var(--line); padding: 28px 48px; font-size: 10px; color: var(--muted); }
+footer p { margin: 0; font-size: 10px; }
+.footer-brand { color: var(--navy); font-size: 12px; font-weight: 800; letter-spacing: 1px; }
+.footer-brand span { color: var(--orange); }
+@media (max-width: 1050px) { .grid-4 { grid-template-columns: repeat(2, 1fr); } .trust { grid-template-columns: 1fr; gap: 28px; } .trust-side { border-left: 0; border-top: 1px solid #526370; padding: 24px 0 0; } }
+@media (max-width: 700px) { header { padding: 22px; flex-direction: column; align-items: flex-start; gap: 20px; } nav { gap: 22px; font-size: 12px; flex-wrap: wrap; } .hero, .pitch { grid-template-columns: 1fr; } .hero { padding: 40px 22px; gap: 30px; } .section { padding: 36px 22px; } .section-heading { display: block; } .trust { margin: 0 22px 40px; padding: 28px; } footer { padding: 28px 22px; flex-direction: column; align-items: flex-start; gap: 16px; } }
+@media (max-width: 440px) { .grid-4 { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <header>
+    <a class="brand" href="index.html" aria-label="Aetheros Aerospace home"><span class="brand-icon" aria-hidden="true">A<span>↗</span></span><span>AETHEROS<small>AEROSPACE</small></span></a>
+    <nav aria-label="Site navigation">
+      <a class="current" href="index.html">Home</a>
+      <a href="page2.html">Products &amp; Services</a>
+      <a href="page3.html">About &amp; Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero section: business name, tagline, and hero image -->
+    <section class="hero">
+      <div>
+        <p class="eyebrow"><span class="orange-dot"></span> AETHEROS AEROSPACE CORP.</p>
+        <h1>Propulsion for people who think <em>past the sky.</em></h1>
+        <p class="intro">Engines, electric drives, and engineering support for the builders, dreamers, and flight teams shaping what flies next.</p>
+        <div class="cta-row">
+          <a class="button" href="page2.html">Explore our products <span aria-hidden="true">↗</span></a>
+          <a class="button ghost" href="page3.html">Get in touch</a>
+        </div>
+      </div>
+      <div class="hero-art">
+        <span class="art-label">AETHEROS / MISSION READY</span>
+        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2MDAgNDAwIiByb2xlPSJpbWciPgogIDx0aXRsZT5JbGx1c3RyYXRpb24gb2YgYW4gQWV0aGVyb3Mgcm9ja2V0IGNsaW1iaW5nIHBhc3QgYW4gb3JiaXQgcmluZzwvdGl0bGU+CiAgPGRlZnM+CiAgICA8cGF0dGVybiBpZD0iZyIgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj48cGF0aCBkPSJNNDAgMEgwVjQwIiBmaWxsPSJub25lIiBzdHJva2U9IiNhN2JmZDQiIHN0cm9rZS1vcGFjaXR5PSIuMSIvPjwvcGF0dGVybj4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iYm9keSIgeDE9IjAiIHgyPSIxIj48c3RvcCBzdG9wLWNvbG9yPSIjYzdkMWRiIi8+PHN0b3Agb2Zmc2V0PSIuNTUiIHN0b3AtY29sb3I9IiM4ZWEyYjQiLz48c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiM0YzYzNzgiLz48L2xpbmVhckdyYWRpZW50PgogICAgPGxpbmVhckdyYWRpZW50IGlkPSJmaXJlIiB4Mj0iMCIgeTI9IjEiPjxzdG9wIHN0b3AtY29sb3I9IiNmZmIzNmIiLz48c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiNmZjZiMzIiIHN0b3Atb3BhY2l0eT0iMCIvPjwvbGluZWFyR3JhZGllbnQ+CiAgPC9kZWZzPgogIDxyZWN0IHdpZHRoPSI2MDAiIGhlaWdodD0iNDAwIiBmaWxsPSJ1cmwoI2cpIi8+CiAgPGVsbGlwc2UgY3g9IjMwMCIgY3k9IjIxNSIgcng9IjIzMCIgcnk9IjgwIiBmaWxsPSJub25lIiBzdHJva2U9IiM1MjY1NzUiIHN0cm9rZS1kYXNoYXJyYXk9IjUgOCIgdHJhbnNmb3JtPSJyb3RhdGUoLTE0IDMwMCAyMTUpIi8+CiAgPGNpcmNsZSBjeD0iNTIwIiBjeT0iNzAiIHI9IjMiIGZpbGw9IiNjZmRhZTMiLz48Y2lyY2xlIGN4PSI5MCIgY3k9IjkwIiByPSIyIiBmaWxsPSIjY2ZkYWUzIi8+PGNpcmNsZSBjeD0iMTQwIiBjeT0iMzIwIiByPSIyIiBmaWxsPSIjY2ZkYWUzIi8+PGNpcmNsZSBjeD0iNDcwIiBjeT0iMzMwIiByPSIyLjUiIGZpbGw9IiNjZmRhZTMiLz4KICA8ZyB0cmFuc2Zvcm09InJvdGF0ZSgyOCAzMDAgMjAwKSI+CiAgICA8cGF0aCBkPSJNMjg1IDI5MFEzMDAgMzkwIDMxNSAyOTBaIiBmaWxsPSJ1cmwoI2ZpcmUpIi8+CiAgICA8cGF0aCBkPSJNMzAwIDYwUTMzNiAxMTAgMzM2IDE5MFYyODBIMjY0VjE5MFEyNjQgMTEwIDMwMCA2MFoiIGZpbGw9InVybCgjYm9keSkiIHN0cm9rZT0iI2UzZWFmMCIgc3Ryb2tlLXdpZHRoPSIyIi8+CiAgICA8Y2lyY2xlIGN4PSIzMDAiIGN5PSIxNjAiIHI9IjE4IiBmaWxsPSIjMTAyNDM2IiBzdHJva2U9IiNjN2QxZGIiIHN0cm9rZS13aWR0aD0iNCIvPgogICAgPGNpcmNsZSBjeD0iMzAwIiBjeT0iMTYwIiByPSI3IiBmaWxsPSIjZmY4MTRkIi8+CiAgICA8cGF0aCBkPSJNMjY0IDIzMEwyMzIgMjkwSDI2NFpNMzM2IDIzMEwzNjggMjkwSDMzNloiIGZpbGw9IiNjNzRhMjIiLz4KICAgIDxwYXRoIGQ9Ik0yNzYgMjAwSDMyNE0yNzYgMjIwSDMyNCIgc3Ryb2tlPSIjMjAzNjRiIiBzdHJva2Utd2lkdGg9IjUiLz4KICA8L2c+CiAgPHBhdGggZD0iTTYwIDM0MEgxOTBNNDEwIDYwSDUzMCIgc3Ryb2tlPSIjZmY4NTU3Ii8+PGNpcmNsZSBjeD0iMTkwIiBjeT0iMzQwIiByPSI0IiBmaWxsPSIjZmY4NTU3Ii8+PGNpcmNsZSBjeD0iNDEwIiBjeT0iNjAiIHI9IjQiIGZpbGw9IiNmZjg1NTciLz4KPC9zdmc+Cg==" width="600" height="400" alt="Illustration of an Aetheros rocket climbing past a dotted orbit ring">
+        <div class="art-bottom"><span>BUILT TO CLIMB.</span><span aria-hidden="true">EST. 2026</span></div>
+      </div>
+    </section>
+
+    <!-- Elevator pitch -->
+    <section class="section pitch">
+      <div>
+        <p class="eyebrow">WHO WE ARE</p>
+        <h2>Small team. Serious thrust.</h2>
+      </div>
+      <p>Aetheros Aerospace designs and sells propulsion systems, from high-output jet engines to clean electric drives, for aircraft startups, university flight teams, and private builders. We also offer engineering services that test your design before it ever leaves the ground, so you can build with confidence.</p>
+    </section>
+
+    <!-- Featured offerings -->
+    <section class="section">
+      <div class="section-heading">
+        <div><p class="eyebrow">FEATURED OFFERINGS</p><h2>What we bring to the hangar.</h2></div>
+        <p>A quick look at our lineup.<br>Full details and pricing on the products page.</p>
+      </div>
+      <div class="grid-4">
+        <article class="card"><span class="num">01</span><h3>AeroJet 200</h3><p>Our bestselling turbofan concept. Big power in a compact package, with digital engine monitoring built in.</p><a class="more" href="page2.html#catalog">View engine ↗</a></article>
+        <article class="card"><span class="num">02</span><h3>Vector TP-50</h3><p>A versatile turboprop made for regional aircraft and long scenic routes.</p><a class="more" href="page2.html#catalog">View turboprop ↗</a></article>
+        <article class="card"><span class="num">03</span><h3>IonCore E-1</h3><p>Electric propulsion for experimental aircraft. Quiet, clean, and ready for the future.</p><a class="more" href="page2.html#catalog">View electric ↗</a></article>
+        <article class="card"><span class="num">04</span><h3>FlightLab Analysis</h3><p>Virtual airflow testing and design reviews from our engineering team before you build.</p><a class="more" href="page2.html#catalog">View service ↗</a></article>
+      </div>
+    </section>
+
+    <!-- Trust element: customer review, mission, and fun fact -->
+    <section class="trust">
+      <div>
+        <p class="eyebrow">WHAT CUSTOMERS SAY</p>
+        <blockquote>"We bolted an AeroJet 200 onto our prototype and it climbed so fast our ground crew forgot to cheer. Aetheros answered every question we had, even the dumb ones."</blockquote>
+        <cite>Dana Whitfield, Founder of SkyLark Flight Co. (fictional)</cite>
+      </div>
+      <div class="trust-side">
+        <span class="badge">OUR MISSION</span>
+        <h3>Make flight more powerful, more efficient, and more possible.</h3>
+        <p>Every system we build is designed to help a team get off the ground faster and safer.</p>
+        <span class="badge">STUDENT FUN FACT</span>
+        <p>Aetheros was founded by two USC students: one handles the business side, and the other is a soldier who works on satellite communications in the Army National Guard.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer><a class="footer-brand" href="index.html">AETHEROS AEROSPACE <span aria-hidden="true">↗</span></a><p>A fictional company created for Thriving in the Tech Age.<br>All products, services, features, and prices are fictional.</p><span>© 2026 Aetheros Aerospace</span></footer>
+</body>
+</html>
